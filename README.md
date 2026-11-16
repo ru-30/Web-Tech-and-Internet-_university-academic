@@ -293,36 +293,9 @@ Each entity has a repository extending `JpaRepository<Entity, UUID>`.
 ---
 
 
-## 10. Screenshots
 
-Screenshots are stored in [`docs/screenshots`](docs/screenshots).
 
-> **Add these before submitting:** save each image into `docs/screenshots/` using the file names below.
-
-### 12.1 Successful application start-up and Hibernate table generation
-![Application start-up](docs/screenshots/01-application-startup.png)
-
-### 12.2 Generated tables in PostgreSQL (pgAdmin)
-![Tables list](docs/screenshots/02-tables-list.png)
-
-### 12.3 Foreign keys on `students`, `courses`, `lecturers`, `departments`
-![Foreign keys](docs/screenshots/03-foreign-keys.png)
-
-### 12.4 Join table `lecturer_courses` (Many-to-Many)
-![Join table](docs/screenshots/04-join-table-lecturer-courses.png)
-
-### 12.5 Join entity `registrations` with its attributes
-![Registrations table](docs/screenshots/05-registrations-table.png)
-
-### 12.6 One-to-One mappings (`students.profile_id`, `departments.head_id`)
-![One-to-One](docs/screenshots/06-one-to-one.png)
-
-### 12.7 Successful test run
-![Tests](docs/screenshots/07-tests-passing.png)
-
----
-
-## 13. Deliverables Checklist
+## 10. Deliverables Checklist
 
 | # | Required deliverable | Location | Status |
 |---|---|---|---|
