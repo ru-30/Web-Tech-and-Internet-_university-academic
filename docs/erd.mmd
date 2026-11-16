@@ -1,0 +1,59 @@
+erDiagram
+    DEPARTMENTS ||--o{ STUDENTS : "admits"
+    DEPARTMENTS ||--o{ COURSES : "offers"
+    DEPARTMENTS ||--o{ LECTURERS : "employs"
+    DEPARTMENTS ||--o| LECTURERS : "headed by"
+    STUDENTS ||--|| STUDENT_PROFILES : "has"
+    LECTURERS ||--o{ LECTURER_COURSES : "teaches"
+    COURSES ||--o{ LECTURER_COURSES : "taught by"
+    STUDENTS ||--o{ REGISTRATIONS : "makes"
+    COURSES ||--o{ REGISTRATIONS : "receives"
+
+    DEPARTMENTS {
+        uuid id PK
+        varchar name UK
+        varchar code UK
+        uuid head_id FK "unique, -> lecturers.id"
+    }
+    LECTURERS {
+        uuid id PK
+        varchar full_name
+        varchar email UK
+        uuid department_id FK
+    }
+    COURSES {
+        uuid id PK
+        varchar code UK
+        varchar title
+        int credits
+        uuid department_id FK
+    }
+    LECTURER_COURSES {
+        uuid course_id PK,FK
+        uuid lecturer_id PK,FK
+    }
+    STUDENTS {
+        uuid id PK
+        varchar full_name
+        varchar registration_number UK
+        varchar email UK
+        uuid department_id FK
+        uuid profile_id FK "unique"
+    }
+    STUDENT_PROFILES {
+        uuid id PK
+        date date_of_birth
+        varchar gender
+        varchar phone_number
+        varchar residential_address
+    }
+    REGISTRATIONS {
+        uuid id PK
+        uuid student_id FK
+        uuid course_id FK
+        date registration_date
+        varchar academic_year
+        int semester
+        varchar status "PENDING|APPROVED|REJECTED"
+        float8 grade "nullable"
+    }
